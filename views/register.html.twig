@@ -1,0 +1,115 @@
+{% extends "BaseTemplate.html.twig" %}
+{% block lien %}
+    <link rel="stylesheet" href="../www/css/main.css" />
+    <link rel="stylesheet" href="../www/css/materialize.css" />
+
+{% endblock %}
+{% block title %}Inscription{% endblock %}
+{% block h1 %}
+    <h1>Inscription</h1>
+{% endblock %}
+{% block content %}
+    <p><i>Vous êtes ici</i> : <a href="/www/">Index du forum</a> --> Enregistrement
+	<!-- <form method="post" enctype="multipart/form-data" action="/www/register/redirect">
+	   <fieldset><legend>Identifiants</legend>
+            <label for="pseudo">* Pseudo :</label>  <input name="pseudo" type="text" id="pseudo" /> (le pseudo doit contenir entre 3 et 15 caractères)<br><br>
+            <label for="password">* Mot de Passe :</label><input type="password" name="password" id="password"  /><br><br>
+            <label for="confirm">* Confirmer le mot de passe :</label><input type="password" name="confirm" id="confirm" /><br>
+        </fieldset>
+        <fieldset><legend>Contacts</legend>
+            <label for="email">* Votre adresse Mail :</label><input type="text" name="email" id="email"><br><br>
+            <label for="website">Votre site web :</label><input type="text" name="website" id="website" /><br>
+        </fieldset>0000
+        <fieldset><legend>Informations supplémentaires</legend>
+            <label for="localisation">Localisation :</label><input type="text" name="localisation" id="localisation" /><br>
+        </fieldset>
+        <fieldset><legend>Profil sur le forum</legend>
+            <label for="avatar">Choisissez votre avatar :</label><input type="file" name="avatar" id="avatar" />(Taille max : 10Ko)<br><br>
+            <label for="description">Description :</label><textarea cols="40" rows="4" name="description" id="description" placeholder="Votre description est limitée à 200 caractères"></textarea><br>
+	   </fieldset>
+        <p>Les champs précédés d un * sont obligatoires</p><br>
+        <p><input type="submit" value="S'inscrire" /></p><br>
+    </form> -->
+	<form method="post" enctype="multipart/form-data" action="/www/register/redirect">
+	   <fieldset><legend>Identifiants</legend>
+
+       <div class="input-field">
+         <input name="pseudo" type="text" id="pseudo" class="validate" pattern="[A-Za-z\-\b]{2,}" required>
+         <label for="pseudo">Pseudo</label>
+       </div>
+
+       <div class="input-field">
+         <input name="password" type="password" id="password" class="validate" required>
+         <label for="password">Mot de passe</label>
+       </div>
+
+       <div class="input-field">
+         <input name="confirm" type="password" id="confirm" class="validate" required>
+         <label for="confirm">Confirmation</label>
+       </div>
+        </fieldset>
+        <fieldset>
+          <legend>Contacts</legend>
+            <div class="input-field">
+              <input id="email" type="email" class="validate" name="email" required>
+              <label for="email">Email</label>
+            </div>
+
+            <div class="input-field">
+              <input name="website" type="text" id="website">
+              <label for="website">Site web</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Informations supplémentaires</legend>
+            <div class="input-field">
+              <input name="localisation" type="text" id="localisation" pattern="[A-Za-z\-\b]{2,}" required>
+              <label for="localisation">Localisation</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Profil sur le forum</legend>
+            <!-- <label for="avatar">Choisissez votre avatar :</label><input type="file" name="avatar" id="avatar" />(Taille max : 10Ko)<br><br> -->
+
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>Avatar</span>
+                <input type="file" name="avatar" id="avatar">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate"  name="avatar" id="avatar" type="text">
+              </div>
+            </div>
+            <!-- <label for="avatar">Choisissez votre avatar :</label><input type="file" name="avatar" id="avatar" />(Taille max : 10Ko)<br><br> -->
+
+
+          <div class="input-field">
+            <textarea id="description" name="description"class="materialize-textarea" data-length="200"></textarea>
+            <label for="description">Description</label>
+          </div>
+
+        <div class="row">
+           <div class="col s6">
+            <button class="btn waves-effect waves-light" type="submit">
+                 <i class="material-icons right">send</i>
+            </button>
+          </div>
+          <div class="col s6">
+            <button class="btn waves-effect waves-light" type="reset">Effacer tout
+            </button>
+          </div>
+        </div>
+
+
+	   </fieldset>
+        <p>Les champs précédés d'un * sont obligatoires</p><br>
+    </form>
+
+    <script>
+      $(document).ready(function() {
+    $('textarea#description').characterCounter();
+  });
+    </script>
+{% endblock %}

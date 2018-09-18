@@ -1,0 +1,22 @@
+{% extends "BaseTemplate.html.twig" %}
+{% block title %}API Rest{% endblock %}
+{% block lien %}
+{% endblock %}
+{% block h1 %}
+	<h1>API Rest</h1>
+{% endblock %}
+{% block content %}
+	<p><i>Vous êtes ici</i> : <a href="/www/">Index du forum</a> --> API</p>
+	<p>Routes - urls
+	<ul>
+		<li>GET - Membres : <a href="api/membres">/api/membres</a>
+		<li>GET - Membres par nom : /api/messages/momo</li>
+		<li>GET - Connecté : <a href="api/connectes">/api/connectes</a></li>
+		<li>GET - Topic : <a href="api/topics">/api/topics</a></li>
+		<li>GET - Topics par nom : /api/messages/nomdutopic</li>
+		<li>GET - Messages : <a href="api/messages">/api/messages</a></li>
+		<li>GET - Messages par topic : /api/messages/6</li>
+		<li>POST - Membres : /api/membres
+		<li>POST - Messages : /api/messages
+	</ul>
+{% endblock %}
